@@ -2,20 +2,20 @@
 
 ## Javascript Primitives
 
-###### What are you going to learn?
+#### What are you going to learn?
 
 - What are the basic types of JavaScript
 - How to manage these types in controll structures
 - What is a conditional statement and how to type it
 - Write your first JavaScript program
 
-### Repl.it
+## Repl.it
 
 ![repl.it](https://repl.it/public/images/logo-small.png)
 
 For this lesson we are going to use an online tool that will help us to see the inmediatly response of our code, call repl.it, this website allow us to write JavaScript directly in the browser in order to test the languaje, this website supports diferent languajes and frameworks, but we will use JavaScript this time.
 
-### JavaScript types
+## JavaScript types
 
 In JavaScript the primitive types are very simple, we can find the same types as other languajes but simplified.
 
