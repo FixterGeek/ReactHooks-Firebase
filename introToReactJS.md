@@ -5,9 +5,9 @@
 #### What are you going to learn?
 
 - What is ReactJs and who created it
-- Why we do not know it as a framework
 - What is a web component
 - Write your first ReactJs component
+- What are props and use them
 
 ## ReactJs; a JavaScript library only
 
@@ -113,16 +113,92 @@ let App = function() {
 ReactDOM.render(<App />, root);
 ```
 
-Look how we pass a variable called "props" into the function component, and this is an object by default, we also use it inside the `<h1>` tag with these `{}` curley brackets because inside the JSX we can access variables this way, and finally look how we send this prop to the `DisplayName` component when we use it inside the `<App/>` component jus like any other html "attribute".
+Look how we pass a variable called "props" into the function component, and this is an object by default, we also use it inside the `<h1>` tag with these `{}` curley brackets because inside the JSX we can access variables this way, and finally look how we send this prop to the `DisplayName` component when we use it inside the `<App/>` component jus like any other html "attribute", but it will be receiver in the props argument of the component function.
+
+### Destructuring
+
+We usually destructuring the props inistead of working with them as a key from an object, this help us to initialize the values and avoid some errors, in the example of the name props, we could something like this:
+
+```javascript
+let DisplayName = function({ name = "Paul" }) {
+  return (
+    <div>
+      <h1>{name}</h1>
+    </div>
+  );
+};
+```
+
+This way if the props doesn't arrive, it will be a default value that is "Paul". This is part of the ES6 sugar syntax, so we will keep it working with it.
+
+### Another example
+
+Finally we will write another example but this time we will use a map to show every element in an array that comes as a prop argument.
+
+```javascript
+let ListOfFoods = function({ foods }) {
+  return (
+    <ul>
+      {foods.map((food, index) => {
+        return <li key={index}>{food}</li>;
+      })}
+    </ul>
+  );
+};
+
+let App = function() {
+  let foods = ["eggs", "fruits", "candy"];
+  return (
+    <div>
+      <ListOfFoods foods={foods} />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, root);
+```
+
+We have to observe that when we use a map inside of a component it have to be with an array ofcourse but also whe need to return JSX, we can observe too that we use the index provided for the map to use it in a prop called "key" this is mandatory when using map, in order to ReactJS work propertly.
+
+We can write this example with even one component more inside the map, and with this we are using the components development style as it were conceived.
+
+```javascript
+let DisplayFood = function({ food }) {
+  return <li> {food} </li>;
+};
+
+let ListOfFoods = function({ foods }) {
+  return (
+    <ul>
+      {foods.map((food, index) => {
+        return <DisplayFood key={index} food={food} />;
+      })}
+    </ul>
+  );
+};
+
+let App = function() {
+  let foods = ["eggs", "fruits", "candy"];
+  return (
+    <div>
+      <ListOfFoods foods={foods} />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, root);
+```
+
+And with this example we have covered the several ways of working with props and the creation of multiple components always observing that we only render the `<App/>` component with `ReactDOM.render()` using all the other components within App component.
 
 ## Recap:
 
-We have cover a very rapid summary of the JavaScript languaje, just in order to start working with the JavaScript tools we will cover in this course in a more confident way. You are ready to give the next step, congratulations!.
+We have learned what ReactJS is, and how the component style development is acomplished, we have writen our first component and some more, we understand now what a prop is and how we can use them, and used the destructuring ES6 tool in order to write more readable components and we have set some defaults in props.
 
 ## Resources:
 
-- [More about JavaScript](https://www.javascript.com/)
-- [The most modern and stable JavaScript](http://es6-features.org/#Constants)
-- [JavaScript excercises - 10 days of JavaScript](https://www.hackerrank.com/domains/tutorials/10-days-of-javascript)
+- [React official docs](https://reactjs.org/)
+- [Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
+- [Tutorial: intro to React](https://reactjs.org/tutorial/tutorial.html)
 
 > Author: @hectorbliss
