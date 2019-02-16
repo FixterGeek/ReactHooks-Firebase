@@ -32,12 +32,12 @@ ReactJS is built on top of this tools and the main way to work with ReactJS is t
 We are about to write some ReactJS styled JavaScript, in order to enter directly to the code we are going to use a web platform that will allow us to see in realtime the result of our code, this platform calls jsbin.com.
 We are going to open a new doc, activate the javascript tab and change the main languaje for ES6/Babel
 
-![jsbin interface](images/jsbin.png)
+![jsbin interface](https://i.imgur.com/g9nyz03.png)
 
 Now we are going to install ReactJS in this new jsbin doc, in the left up side of the website we are going to click the "Add library" button, and look for "React + React DOM 15.1.0"
 React hooks is packed in ReactJs 16.8.1 but in order to learn how ReactJS works the version 15.1.0 is ok, we will get to React 16.8.1 in a while.
 
-![addLibrary](images/addLibrary.png)
+![addLibrary](https://i.imgur.com/4P2IFlB.png)
 
 That's it we are ready to write a new component and use it white ReactDOM.
 
@@ -60,7 +60,7 @@ ReactDOM.render(<App />, root);
 
 We are using ReactDOM library to set our first component in the html document, and the id "root" to tell where we want to put it, it is important to create a div inside the HTML tab, in order for this to work.
 
-![root div](images/rootDiv.png)
+![root div](https://i.imgur.com/kd33oZ7.png)
 
 And "bualá" we have written our first component and set it into our website! so easly right? 😁
 
