@@ -44,11 +44,11 @@ Now is time to create an HTML file whitin vsCode File > new File. And name it in
 
 Select the first one and it will write the basic structure of an HTML file for you.
 
-![html basic structure](images/htmlBasic.png)
+![html basic structure](https://i.imgur.com/DiL0kdG.png)
 
 Now is time to wire our Firebase project into our HTML file, for this we will copy the Firebase library and our project's refs, then paste it into our HTML File before the close tag of `</body>`.
 
-![firebase refs](images/firebaseRefs.png)
+![firebase refs](https://i.imgur.com/x2g8YE2.png)
 
 At the end we will have our HTML file like this:
 
