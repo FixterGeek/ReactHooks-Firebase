@@ -16,19 +16,19 @@
 Firebase is a mobile and web application development platform developed by Firebase, Inc. in 2011, then acquired by Google in 2014. As of October 2018, the Firebase platform has 18 products, which are used by 1.5 million apps.
 
 Firebase is good to enter the web development world because it allow us to have an instant backend effortless, and some key features like login, database, security access and hosting amoung others.
-![Firebase home page](images/firebaseHome.png)
+![Firebase home page](https://i.imgur.com/k6fFhR4.png)
 
 To create an account is as easly as have a google account like Gmail. We just have to visit firebase.google.com and signup, then we have access to the apps console.
 
-![firebase app console](images/firebaseConsole.png)
+![firebase app console](https://i.imgur.com/cixMLkX.png)
 
 Now we can add a project clicking the "+" card and complete the data requested, select country and accept the politycs then click in create.
 
-![firebase politycs](images/firebasePolitycs.png)
+![firebase politycs](https://i.imgur.com/ydJ9LHW.png)
 
 And that's it! you have a brand new Firebase project:
 
-![new firebase project](images/firebaseProject.png)
+![new firebase project](https://i.imgur.com/IO3YPRN.png)
 
 ### Wiring the Firebase project
 
@@ -40,7 +40,7 @@ Let's install a code editor, this time we will use Visual Studio Code from Micro
 
 Now is time to create an HTML file whitin vsCode File > new File. And name it index.html, now that we have our new `index.html` file we can rapdly write the basic structure of an HTML file with the vsCode suggestions, write one ! sign and vsCode will suggest two options, this is comming from a plugin already installed called "emmet".
 
-![vsCode suggestions](images/emmet.png)
+![vsCode suggestions](https://i.imgur.com/ANP7Tf6.png)
 
 Select the first one and it will write the basic structure of an HTML file for you.
 
@@ -87,7 +87,7 @@ We are now connected to our project, and we can start working with our HTML file
 
 We are now about to work with some javascript into our webapp (the HTML file) in order to save some objects into our DB, first we have to initiate the Firestore database, let's go to the firebase console and select the tab database, then select Cloud Firestore, testing mode and start.
 
-![cloud firestore](images/firestore.png)
+![cloud firestore](https://i.imgur.com/ZraTGqR.png)
 
 Now we can connect to the DB and create a document.
 
@@ -138,7 +138,7 @@ firestore
 
 With this we are now writing into the Firestore DB, directly, this thanks to the development settings that we choose, but we have a database now!, so easy right?, if we go looking into the console we can find our new record, now we have our first document into the students collection.
 
-![first firestore document](images/firstDoc.png)
+![first firestore document](https://i.imgur.com/8uZ4MIC.png)
 
 ### Add some documents more and try with some inputs.
 
@@ -217,10 +217,10 @@ service cloud.firestore {
 This is going to block the reading and writing for users non loggedin.
 Now if we try to add some documents again as we did before we will see this error at the navigator console:
 
-![insuficient permissions](images/insuficientPermissions.png)
+![insuficient permissions](https://i.imgur.com/AMJxcid.png)
 Yes, this is good, it means that our security rules are working and now in order to write into the database we need to do a login, so we are going to add a button login validation into our app, and use the `.auth()` tool from Firebase, but in order to the loggin to workm, we need to emulate a web server, luckily there is a very simple web server available as a chrome extension:
 
-![webs erver for chrome](images/serverChrome.png)
+![webs erver for chrome](https://i.imgur.com/ZDXN3K3.png)
 Web server for Chrome is a very powerful tool that allow us to serve some folder as a webserver, just selecting the folder we wish to use.
 
 Select the folder of your project (where your indexz.html file is living) and then visit `http://localhost:8887` and you will see our form. Now is time to create a login button and put it to work.
@@ -314,7 +314,7 @@ We alse have added a login button into the `<body></body>` tag, and the complete
 
 The only missing piece is to go to the authentication tab of the Firebase console, login methods and active the Google login:
 
-![active google login](images/googleLogin.png)
+![active google login](https://i.imgur.com/p25V2mI.png)
 
 Now if we try our button, we could see that in the console, we will receive the info of our Google user, in adition to the apperance of the form and if we try to write some new record in our database, we can do it! because we are logged in. So nice right?
 
