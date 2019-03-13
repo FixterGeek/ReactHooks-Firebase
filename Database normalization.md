@@ -34,7 +34,7 @@ Es por ello que nosotros las llamaremos "noSQL" qué es un nombre más apropiado
 Codd creo el concepto de normalización y lo que ahora se conoce como primera forma de normalización "first normal form" (1NF) en 1970 Codd definió posteriormente la segunda forma de normalizacion "second normal form" (2NF) y la tercera form de normalización "third normal form" (3NF) en 1971. Codd y Raymond F. Boyce definieron "the Boyce-Codd normal form" (BCNF) en 1974.
 ¿En qué consiste cáda una?, estamos hablando de muchos años de trabajo, para cada uno de los niveles se invirtieron sudor y mucho tiempo, para llegar a la fabulosa conclusion de que lo que hacia falta y resuelve casi todos los niveles de normalización es una "llave primaria".
 
-![normalization](https://imgur.com/UyTLkyp)
+![normalización](https://i.imgur.com/UyTLkyp.png)
 
 ### ¿Cómo usamos la normalización con llave foranea?
 
@@ -42,7 +42,7 @@ Entonces, cada que nostros necesitamos separar modelos y al mismo tiempo relacio
 
 Ejemplo:
 
-![ejemplo de normalización](https://imgur.com/Ay3mdLf)
+![ejemplo](https://i.imgur.com/Ay3mdLf.png)
 
 ¿Qué te parece si hacemos un ejercicio con Uber Eats?
 
@@ -81,67 +81,51 @@ let userModel = {
 
 Tenemos entonces la forma de nuestro objetos, los cuales a simple vista ya podemos ver que address se puede convertir en un modelo, de igual forma que user, y relacionarlos por medio de una llave primaria.
 
-
-
-### Another example
-
-Finally we will write another example but this time we will use a map to show every element in an array that comes as a prop argument.
-
 ```javascript
-let ListOfFoods = function({ foods }) {
-  return (
-    <ul>
-      {foods.map((food, index) => {
-        return <li key={index}>{food}</li>;
-      })}
-    </ul>
-  );
-};
 
-let App = function() {
-  let foods = ["eggs", "fruits", "candy"];
-  return (
-    <div>
-      <ListOfFoods foods={foods} />
-    </div>
-  );
-};
+let userModel = {
+  id: 100,
+  name: "BlisS",
+  age: 31,
+  adresses:[0,1]
+}
+let homeAddress =
+    {
+      id: 0,
+      name: "home",
+      street: "cordoba",
+      number: 51
+    }
+let workAdresss =     {
+      id: 1,
+      name: "work",
+      street: "Jalapa",
+      number: 100
+    }
 
-ReactDOM.render(<App />, root);
 ```
+Nota que para crear una normalización tuvimos que agregar la llave id a cada uno de los objetos, de esta manera cada objeto tiene un identificador único, es importante denotar que por ahora en este ejemplo estamos utilizando numeros para los id, y que si seguimos colocandolos manualmente tendrémos un error tarde o temprano, por suerte estos id no lo colocamos nosotros normalmente en una base de datos, es un elemento tan importante para una base de datos moderna (normalizada) que ella misma se encarga de esto, de igual forma Firebase Firestore se encargará de esto.
 
-We have to observe that when we use a map inside of a component it have to be with an array ofcourse but also whe need to return JSX, we can observe too that we use the index provided for the map to use it in a prop called "key" this is mandatory when using map, in order to ReactJS work propertly.
+Felicidades, estamos listos para crear estos dos documentos en Firestore, toma nota que tenemos 2 direcciones para lo cual ahora tiene sentido pensar en colecciones, tendremos un conjunto de direcciones, y también tendremos un conjunto de usuarios en nuestra base de datos. Estos pues son nuestros modelos; Address y User.
 
-We can write this example with even one component more inside the map, and with this we are using the components development style as it were conceived.
+Vamos a la base de datos de nuestro proyecto de Firebase y damos clic en añadir colección.
 
-```javascript
-let DisplayFood = function({ food }) {
-  return <li> {food} </li>;
-};
+![add collection](https://i.imgur.com/scu8cFa.png)
 
-let ListOfFoods = function({ foods }) {
-  return (
-    <ul>
-      {foods.map((food, index) => {
-        return <DisplayFood key={index} food={food} />;
-      })}
-    </ul>
-  );
-};
+Como notarás una vez que agregamos la colección, vamos a agregar nuestro primer documento, automaticamente nos pide agregar un nuevo documento, de lo contrario la colección no puede ser creada. Podemos ver el ID automatico que se va crear, o podemos dejarlo invisible.
 
-let App = function() {
-  let foods = ["eggs", "fruits", "candy"];
-  return (
-    <div>
-      <ListOfFoods foods={foods} />
-    </div>
-  );
-};
+![add document](https://i.imgur.com/EHNbUOq.png)
 
-ReactDOM.render(<App />, root);
-```
+Podemos agregar los campos que necesitemos así cómo seleccionar el tipo de dato que almacenará.
 
-And with this example we have covered the several ways of working with props and the creation of multiple components always observing that we only render the `<App/>` component with `ReactDOM.render()` using all the other components within App component.
+¡Felicidades! haz agregado tu primer documento, ahora haz lo mismo con la segunda dirección en la colección Addresses y también hay que crear nuestra colección Users y crear nuestro primer documento user.
+
+
+### ¡A normalizar!
+
+En Firebase Firestore cómo en muchas otras bases de datos existe la posibilidad de indicar que un campo de un documento es una relación a la base de datos, esto se hace seleccionando el tipo de dato "referencia", vamos a usarlo y al mismo tiempo normalizar nuestra base de datos, relacionando las direcciones con nuestro usuario.
+
+
 
 ## Recap:
 
