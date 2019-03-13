@@ -125,16 +125,25 @@ Podemos agregar los campos que necesitemos así cómo seleccionar el tipo de dat
 
 En Firebase Firestore cómo en muchas otras bases de datos existe la posibilidad de indicar que un campo de un documento es una relación a la base de datos, esto se hace seleccionando el tipo de dato "referencia", vamos a usarlo y al mismo tiempo normalizar nuestra base de datos, relacionando las direcciones con nuestro usuario.
 
+Para lograr la normalización, debemos conocer el id de la dirección que queremos colocar en la llave addresses del usuario, así que vamos a copiar el id de la dirección home:
+
+![id](https://i.imgur.com/KcrjqVL.png)
+
+Una vez copiado el link de la dirección que queremos referenciar, vamos a nuestro modelo de usuario y agreguemos la referencia correspondiente en el array de addresses.
+
+![ref](https://i.imgur.com/EXV3vov.png)
+
+¡Genial! haz agregado exitosamente tu primer referencia entre documentos, ahora tienes una base de datos normalizada.
 
 
 ## Recap:
 
-We have learned what ReactJS is, and how the component style development is acomplished, we have writen our first component and some more, we understand now what a prop is and how we can use them, and used the destructuring ES6 tool in order to write more readable components and we have set some defaults in props.
+Hemos hablado acerca de la normalización de una base de datos, sabemos quién es Edgar F. Codd y conocimos los distintos niveles de normalización que existen y entendido que el nivel 3 junto con todos los consecuentes se pueden resolver simplemente con llaves primarias (o foraneas) y que las bases de datos no-sql no son lo mismo que las no-relacionales, y también hemos creado nuestra primer base de datos normalizada con Firebase Firestore. ¡Felicidades! =D
 
 ## Resources:
 
-- [React official docs](https://reactjs.org/)
-- [Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
-- [Tutorial: intro to React](https://reactjs.org/tutorial/tutorial.html)
+- [DB normalization](https://en.wikipedia.org/wiki/Database_normalization)
+- [noSQL](https://blogs.oracle.com/spain/qu-es-una-base-de-datos-nosql)
+- [Firestore docs](https://firebase.google.com/docs/firestore/data-model?hl=es-419)
 
 > Author: @hectorbliss
